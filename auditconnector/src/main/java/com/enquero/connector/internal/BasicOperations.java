@@ -8,6 +8,9 @@ import java.net.URLConnection;
 import org.mule.runtime.extension.api.annotation.Alias;
 import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.MediaType;
+import org.mule.runtime.extension.api.annotation.param.ParameterGroup;
+
+import com.enquero.connector.internal.param.CustomParameters;
 
 /**
  * This class is a container for operations, every public method in this class
@@ -17,17 +20,17 @@ public class BasicOperations {
 
 	@MediaType(value = ANY, strict = false)
 	@Alias("AuditOps")
-	public String Audit(@Config BasicConfiguration config, String apiName, String transID, String errorMsg) {
+	public String Audit(@Config BasicConfiguration config,
+			@ParameterGroup(name = "Custom Params") CustomParameters param) {
 
-		return "Config Details:\n " + config.getAppId() + ":" + config.getAppName() + ": " + config.getAppVersion()
-				+ ",\n API Name: " + apiName + ", TransactionID: " + transID + ", Error Msg: " + errorMsg;
+		return "Parameters: " + param + " \nConfig Details:\n " + config.getProtocol();
 	}
 
 	@MediaType(value = ANY, strict = false)
 	@Alias("LoggingOps")
-	public String Logging(@Config BasicConfiguration config, String apiName, String transID, String errorMsg) {
-		return "Config Details:\n " + config.getAppId() + ":" + config.getAppName() + ": " + config.getAppVersion()
-				+ ", API Name: " + apiName + ", TransactionID: " + transID + ", Error Msg: " + errorMsg;
+	public String Logging(@Config BasicConfiguration config,
+			@ParameterGroup(name = "Custom Params2") CustomParameters param) {
+		return "Parameters: " + param + " \nConfig Details:\n " + config.getProtocol();
 	}
 
 	@MediaType(value = ANY, strict = false)

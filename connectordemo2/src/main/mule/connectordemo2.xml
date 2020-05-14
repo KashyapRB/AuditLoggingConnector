@@ -16,7 +16,7 @@ http://www.mulesoft.org/schema/mule/basic http://www.mulesoft.org/schema/mule/ba
 	</basic:config>
 	<flow name="connectordemo2Flow" doc:id="f77ddd1f-eb80-4b85-81c5-41762d673793" >
 		<http:listener doc:name="Listener" doc:id="bd1700c6-5e72-43a4-8f3e-c6190cdbe578" config-ref="HTTP_Listener_config" path="audit"/>
-		<basic:audit-ops doc:name="Audit ops" doc:id="63c2f6e4-29e6-4951-a7ae-d479adb8f18e" apiName="Demo APP" transID="121009" errorMsg="This is test error message" config-ref="Basic_Config"/>
+		<basic:audit-ops doc:name="Audit ops" doc:id="1e82ef93-608e-48ed-a6a4-4e65393c44c9" config-ref="Basic_Config"/>
 	</flow>
 	<flow name="connectordemo2Flow1" doc:id="06cbe903-3eca-4973-96d1-2521e8d242bb" >
 		<http:listener doc:name="Listener" doc:id="5e43c71d-1ac1-4ef6-b9ed-4de6b0d1cc1b" config-ref="HTTP_Listener_config" path="logger"/>

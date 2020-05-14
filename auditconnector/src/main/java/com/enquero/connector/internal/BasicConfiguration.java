@@ -18,39 +18,6 @@ public class BasicConfiguration {
 	@OfValues(ProtocolProvider.class)
 	public String protocol;
 
-	@Parameter
-	public String appId;
-	
-	@Parameter
-	public String appName;
-	
-	@Parameter
-	public String appVersion;
-
-	public String getAppId() {
-		return appId;
-	}
-
-	public void setAppId(String appId) {
-		this.appId = appId;
-	}
-
-	public String getAppName() {
-		return appName;
-	}
-
-	public void setAppName(String appName) {
-		this.appName = appName;
-	}
-
-	public String getAppVersion() {
-		return appVersion;
-	}
-
-	public void setAppVersion(String appVersion) {
-		this.appVersion = appVersion;
-	}
-
 	public String getProtocol() {
 		return protocol;
 	}
