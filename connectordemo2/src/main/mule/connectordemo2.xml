@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:basic="http://www.mulesoft.org/schema/mule/basic" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+<mule xmlns:AugLog="http://www.mulesoft.org/schema/mule/AugLog" xmlns:basic="http://www.mulesoft.org/schema/mule/basic"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
-http://www.mulesoft.org/schema/mule/basic http://www.mulesoft.org/schema/mule/basic/current/mule-basic.xsd">
+http://www.mulesoft.org/schema/mule/basic http://www.mulesoft.org/schema/mule/basic/current/mule-basic.xsd
+http://www.mulesoft.org/schema/mule/AugLog http://www.mulesoft.org/schema/mule/AugLog/current/mule-AugLog.xsd">
 	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="114f65f6-334c-4851-9b39-b20f94d26256" >
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
@@ -16,10 +17,10 @@ http://www.mulesoft.org/schema/mule/basic http://www.mulesoft.org/schema/mule/ba
 	</basic:config>
 	<flow name="connectordemo2Flow" doc:id="f77ddd1f-eb80-4b85-81c5-41762d673793" >
 		<http:listener doc:name="Listener" doc:id="bd1700c6-5e72-43a4-8f3e-c6190cdbe578" config-ref="HTTP_Listener_config" path="audit"/>
-		<basic:audit-ops doc:name="Audit ops" doc:id="1e82ef93-608e-48ed-a6a4-4e65393c44c9" config-ref="Basic_Config"/>
+		<AugLog:audit-ops doc:name="Audit ops" doc:id="7699457f-6f74-4d86-96d2-ea9efbe5dd65" config-ref="Basic_Config"/>
 	</flow>
 	<flow name="connectordemo2Flow1" doc:id="06cbe903-3eca-4973-96d1-2521e8d242bb" >
 		<http:listener doc:name="Listener" doc:id="5e43c71d-1ac1-4ef6-b9ed-4de6b0d1cc1b" config-ref="HTTP_Listener_config" path="logger"/>
-		<basic:logging-ops doc:name="Logging ops" doc:id="57387c0c-ba05-4913-99c2-96a8b4a84dca" config-ref="Basic_Config1" apiName="Demo2" transID="1090909" errorMsg="This is Demo2 Error Message"/>
+		<AugLog:logging-ops doc:name="Logging ops" doc:id="e493ce75-9547-4ecd-a8b2-af9e3be01ef7" config-ref="Basic_Config"/>
 	</flow>
 </mule>
