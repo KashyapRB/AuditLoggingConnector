@@ -2,6 +2,7 @@ package com.enquero.connector.internal;
 
 import org.mule.runtime.extension.api.annotation.Operations;
 import org.mule.runtime.extension.api.annotation.connectivity.ConnectionProviders;
+import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
 import org.mule.runtime.extension.api.annotation.values.OfValues;
 
@@ -16,6 +17,7 @@ public class BasicConfiguration {
 
 	@Parameter
 	@OfValues(ProtocolProvider.class)
+	@Optional(defaultValue = "HTTP")
 	public String protocol;
 
 	public String getProtocol() {

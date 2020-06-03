@@ -23,7 +23,12 @@ public class BasicOperations {
 	public String Audit(@Config BasicConfiguration config,
 			@ParameterGroup(name = "Custom Params") CustomParameters param) {
 
-		return "Parameters: " + param + " \nConfig Details:\n " + config.getProtocol();
+		return "Parameters:\n " + "\nAPI Name: " + param.getApiName() + "\nDesitination: " + param.getDestination()
+				+ "\nDEsitination: " + param.getErrorCode() + "\nDEsitination: " + param.getErrorMsg()
+				+ "\nDEsitination: " + param.getFlowName() + "\nDEsitination: " + param.getLogTime()
+				+ "\nDEsitination: " + param.getSource() + "\nDEsitination: " + param.getTransactionID()
+				+ " \nConfig Details:\n " + config.getProtocol();
+
 	}
 
 	@MediaType(value = ANY, strict = false)
